@@ -1,5 +1,25 @@
-//My answer
 
+// return masked string
+function maskify(cc) {
+	var dd = cc.toString();
+	//dd will be used, it is sanitized toString() and is easier to work with with regex
+	var mask = dd.replace(/.(?=.{4,}$)/g, '#');
+	//I used above regex statement from the user MinusFour this url: https://stackoverflow.com/questions/35256611/replace-all-chars-with-except-for-last-4/35256715
+	return mask;
+}
+
+
+/* Description:
+
+Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+*******Best Practice Solution:
+
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
 function maskify(cc) {
 	var maskedString = '';
 	cc = cc.toString();
@@ -15,19 +35,6 @@ function maskify(cc) {
 
 	return maskedString;
 }
-
-/* Description:
-
-Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
-
-Your task is to write a function maskify, which changes all but the last four characters into '#'.
-
-*******Best Practice Solution:
-
-function maskify(cc) {
-  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
-}
-
 */
 
 console.log(maskify('4556364607935616')); // '############5616');
